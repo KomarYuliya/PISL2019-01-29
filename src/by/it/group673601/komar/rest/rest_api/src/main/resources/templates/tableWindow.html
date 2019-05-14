@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List</title>
+
+</head>
+<body>
+<style>
+    table{
+        border: 2px solid black;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th{
+        background-color: aqua;
+        border: 2px solid black;
+    }
+    td{
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<!--<br><br>-->
+<div>
+
+    <table>
+        <tr>
+            <th>Иден. номер</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Адрес</th>
+            <th>Зарплата</th>
+        </tr>
+        <form th:action="@{/delete}" th:object="${resultObject}" method="post">
+            <tr th:each="person: ${persons}">
+                <td th:text="${person.id}"/>
+                <td th:text="${person.lastName}"/>
+                <td th:text="${person.firstName}"/>
+                <td th:text="${person.address}"/>
+                <td th:text="${person.budget}"/>
+                <td><input type="checkbox" th:value="${person.id}" th:field="*{toDelete}"/></td>
+
+            </tr>
+            <tr>
+                <td colspan="4"><input type="submit" value="Удалить"/></td>
+            </tr>
+        </form>
+        <form th:action="@{/save}" th:object="${updateObject}" method="post">
+            <tr>
+                <td><input type="text" placeholder="Иден. номер" th:field="*{id}"/></td>
+                <td><input type="text" placeholder="Фаилия" th:field="*{lastName}"/></td>
+                <td><input type="text" placeholder="Имя" th:field="*{firstName}"/></td>
+                <td><input type="text" placeholder="Адрес" th:field="*{address}"/></td>
+                <td><input type="text" placeholder="Зарплата" th:field="*{budget}"/></td>
+                <td><input type="submit" value="Сохранить"/></td>
+            </tr>
+        </form>
+    </table>
+</div>
+</body>
+</html>

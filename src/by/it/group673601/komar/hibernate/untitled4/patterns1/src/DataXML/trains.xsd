@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="trains" type="trainsType"/>
+  <xs:complexType name="trainType">
+    <xs:sequence>
+      <xs:element name="num">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="1111"/>
+            <xs:enumeration value="2222"/>
+            <xs:enumeration value="3333"/>
+            <xs:enumeration value="4444"/>
+            <xs:enumeration value="5555"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="date_living"/>
+      <xs:element type="xs:string" name="time_living"/>
+      <xs:element type="xs:string" name="destinition"/>
+      <xs:element type="xs:string" name="vokzal_living"/>
+      <xs:element type="xs:string" name="platform_living"/>
+      <xs:element type="xs:string" name="vokzal_arriving"/>
+      <xs:element type="xs:string" name="ticket_type"/>
+      <xs:element type="xs:string" name="cost"/>
+      <xs:element type="xs:string" name="date_arriving"/>
+      <xs:element type="xs:string" name="time_arriving"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="trainsType">
+    <xs:sequence>
+      <xs:element type="trainType" name="train" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

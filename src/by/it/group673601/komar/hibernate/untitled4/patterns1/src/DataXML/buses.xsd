@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="buses" type="busesType"/>
+  <xs:complexType name="busType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="num"/>
+      <xs:element type="xs:string" name="date_living"/>
+      <xs:element type="xs:string" name="time_living"/>
+      <xs:element type="xs:string" name="destinition"/>
+      <xs:element type="xs:string" name="vokzal_living"/>
+      <xs:element type="xs:string" name="platform_living"/>
+      <xs:element type="xs:string" name="vokzal_arriving"/>
+      <xs:element type="xs:string" name="cost"/>
+      <xs:element type="xs:string" name="bus_mark"/>
+      <xs:element type="xs:string" name="time_in_road"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="busesType">
+    <xs:sequence>
+      <xs:element type="busType" name="bus" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

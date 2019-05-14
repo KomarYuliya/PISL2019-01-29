@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handing Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<style>
+    table{
+        border: 2px solid black;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th{
+        background-color: aqua;
+        border: 2px solid black;
+    }
+    td{
+        border: 2px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<table>
+    <thead>
+    <tr>
+        <th>Способ загрузки исходных данных</th>
+        <th>Режим просмотра</th>
+    </tr>
+    </thead>
+    <tbody>
+    <form th:action="@{/work}" th:object="${resultObject}" method="post">
+        <tr>
+            <td>
+                <p>XML<input type="radio" name="loadType" value="xml" checked="checked" th:field="*{loadType}"></p>
+                <p>JSON<input type="radio" name="loadType" value="json" th:field="*{loadType}"></p>
+            </td>
+            <td>
+                <p>Все<input type="radio" name="watchType" value="all" checked="checked" th:field="*{watchType}"></p>
+                <p>Название<input type="radio" name="watchType" value="name" th:field="*{watchType}"></p>
+                <p>Номер<input type="radio" name="watchType" value="id" th:field="*{watchType}"></p>
+                <input type="text" th:field="*{criteria}" placeholder="Параметр поиска">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="submit" value="Submit" /></td>
+        </tr>
+    </form>
+    </tbody>
+</table>
+</body>
+</html>
